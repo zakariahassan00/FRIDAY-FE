@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  z-index: 101;
+  z-index: $header-zIndex;
 
   &__brand h2 {
     letter-spacing: 8px;

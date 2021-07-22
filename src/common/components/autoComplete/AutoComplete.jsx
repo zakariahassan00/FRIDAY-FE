@@ -35,14 +35,15 @@ const AutoComplete = ({
 
   const renderList = () => {
     if (!options.loaded) return <li>Loading...</li>;
-    // if there is error with fetching try again for the user
+    // this fallBack fn acts as "Try Again", if there is an error try again with the provided fn in fallback
     else if (options.errors) {
       fallBack && fallBack();
     }
 
     const filterOptions = options.data.filter((option) =>
-      option.toLowerCase().includes(value?.toLowerCase())
+      option.toString().toLowerCase().includes(value?.toString().toLowerCase())
     );
+    
     if (filterOptions.length === 0)
       return <li onMouseDown={() => handleListClick("")}>{emptyOptionsMsg}</li>;
     else
@@ -52,6 +53,7 @@ const AutoComplete = ({
         </li>
       ));
   };
+
 
   return (
     <div className="autocomplete">
@@ -64,6 +66,7 @@ const AutoComplete = ({
         onFocus={() => setOpen(true)}
         onBlur={handleLoseFocus}
       />
+
       {open && (
         <div className="autocomplete__list">
           <ul>{renderList()}</ul>

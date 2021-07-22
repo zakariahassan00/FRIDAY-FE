@@ -6,10 +6,11 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   background-color: $light-gray-color;
 
   &__banner {
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +19,13 @@
 
   & img {
     width: 80%;
-    max-width: 600px;
+    max-width: 400px;
+    // user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
   }
 
   &__search {
@@ -26,7 +33,7 @@
     width: 80%;
     max-width: 400px;
     height: 40px;
-    border-radius: 16px;
+    border-radius: $input-btn-radius;
     outline: none;
     border: 1px solid $fuchsia-blue-color;
     margin: 10px auto;
@@ -36,18 +43,5 @@
     &:hover {
       background-color: $fuchsia-blue-color-hover;
     }
-  }
-
-  &__select {
-    width: 80%;
-    max-width: 400px;
-    height: 40px;
-    margin: 10px auto;
-    padding: 10px;
-    border-radius: 16px;
-    box-sizing: border-box;
-    outline: none;
-    cursor: pointer;
-    background-color: $white-color;
   }
 }

@@ -6,10 +6,11 @@
   height: 40px;
   margin: 10px auto;
   border: 2px solid rgb(183, 183, 197);
-  border-radius: 8px;
+  border-radius: $input-btn-radius;
   box-sizing: border-box;
   outline: none;
   background-color: $white-color;
+  position: relative;
 
   & input {
     width: 100%;
@@ -17,8 +18,11 @@
     padding: 0 20px 0;
     outline: none;
     border: none;
-    border-radius: 8px;
+    border-radius: $input-btn-radius;
     cursor: pointer;
+    font-size: 14px;
+    color: $font-color;
+
   }
   & input:hover {
     border: none;
@@ -26,11 +30,13 @@
 
   &__list {
     max-height: 200px;
+    width: 100%;
     margin-top: 5px;
-    position: relative;
-    z-index: 100;
+    margin-bottom: 10px;
+    position: absolute;
+    z-index: $autoComplete-zIndex;
     text-align: left;
-    border-radius: 8px;
+    border-radius: $input-btn-radius;
     overflow: auto;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: $white-color;
@@ -42,10 +48,20 @@
 
   &__list li {
     padding: 5px;
-  }
+    padding-left: 20px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    transition: .3s;
+    font-weight: bold;
+    font-size: 14px;
 
-  &__list li:hover {
-    cursor: pointer;
-    background-color: $light-gray-color;
+    &:hover {
+      padding-left: 25px;
+      cursor: pointer;
+      tab-size: 10px;
+      color: $font-color;
+      background-color: $light-gray-color;
+    }
   }
 }

@@ -13,7 +13,7 @@ function App() {
       <div className="header_fixed_position_clear"/>
       
       <Switch>
-        <Route path="/cars/:make/:model" component={SelectedCars} />
+        <Route path="/cars/:make/:model/:bodyType/:engPower" component={SelectedCars} />
         <Route path="/" component={LandingPage} />
       </Switch>
     </div>

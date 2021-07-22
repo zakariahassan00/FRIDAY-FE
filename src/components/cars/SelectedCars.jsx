@@ -11,10 +11,16 @@ import "./selectedCars.scss"
 const SelectedCar = () => {
   const dispatch = useDispatch();
   const params = useParams();
+  // all the cars in the store (with the make & model selected) 
   const selectedCars = useSelector(({ cars }) => cars.selectedCars);
+  // filter the cars in the store based on the bodyType and EnginePower ( values to compare fetched from Params in url )
+  const filtredSelectedCars = 
+    selectedCars.data?.filter(car => car.bodyType === params.bodyType & car.enginePowerPS === +params.engPower )
+  // pagination
   const [ page, setPage ] = useState(0);
   const ROWS_PER_PAGE = 10;
-  const maxPagesCount = Math.floor(selectedCars.count / ROWS_PER_PAGE);
+  const maxPagesCount = Math.floor(filtredSelectedCars.length / ROWS_PER_PAGE);
+
   const carInfoRows = [
     {key: "Engine Power (PS)", value: 'enginePowerPS', measuring_unit: "PS"},
     {key: "Engine Power (KW)", value: 'enginePowerKW', measuring_unit: "KW"},
@@ -23,8 +29,8 @@ const SelectedCar = () => {
   ]
 
   useEffect(() => {
-    dispatch(getSelectedCars({ make: params.make, model: params.model }));
-
+    if (!selectedCars.loaded) dispatch(getSelectedCars({ make: params.make, model: params.model }));
+    
     return () => {
       dispatch({type: Types.CLEAN})
     }
@@ -36,7 +42,7 @@ const SelectedCar = () => {
     if (!selectedCars.loaded) return <h3 className="viewCars__message">Loading...</h3>
     else if (selectedCars.errors) return <h3 className="viewCars__message">{selectedCars.errors}</h3>
     else if (selectedCars.count === 0) return <h3 className="viewCars__message">No Vehicles Found</h3>
-    else return selectedCars.data
+    else return filtredSelectedCars
     .slice(page * ROWS_PER_PAGE, page * ROWS_PER_PAGE + ROWS_PER_PAGE)
     .map((car, index) => (
     <div key={index} className="viewCars__singleCarInfo">
@@ -52,6 +58,7 @@ const SelectedCar = () => {
     ))
   };
 
+
   return <div className="viewCars slideRight">
     <div className="viewCars__control">
 
@@ -61,7 +68,7 @@ const SelectedCar = () => {
 
       <div className="viewCars__path">
         <h4>{`${params.make} > ${params.model}`}</h4>
-        <p>{`${selectedCars.count} vehicles found`}</p>
+        <p>{`${filtredSelectedCars.length } vehicles found`}</p>
       </div>
     </div>
 

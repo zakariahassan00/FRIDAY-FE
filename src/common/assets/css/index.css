@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: "Rubik", sans-serif;
   overflow-x: hidden;
+  /* padding-bottom: 70px; */
 }
 
 code {
