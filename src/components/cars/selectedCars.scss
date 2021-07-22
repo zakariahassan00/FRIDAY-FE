@@ -1,0 +1,85 @@
+@import '/src/common/assets/scss/variables.scss';
+
+.viewCars {
+    max-width: $container;
+    min-height: 100vh;
+    margin: auto;
+    padding: 20px;
+   
+    &__control {
+        width: 100%;
+        min-height: 100px;
+        background-color: $white-color;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    
+    &__path {
+        line-height: 1.8;
+    }
+    
+    &__list {
+        width: 100%;
+        min-height: 500px;
+        background-color: $white-color;
+        margin: 20px auto;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    &__message {
+        width: 100%;
+        text-align: center;
+        margin: 25px;
+    }
+    
+    &__filter {
+        display: flex;
+        align-items: center;
+    }
+    
+    &__filter select {
+        height: 40px;
+        width: 150px;
+        margin-right: 5px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    
+    &__singleCarInfo {
+        border: 1px solid $light-gray-color;
+        padding: 10px;
+
+        &:hover {
+            background-color: $light-gray-color-hover;
+        }
+
+        & h4 {
+            color: $font-color;
+            margin-bottom: 15px;
+        }
+    }
+    
+    &__singleCarInfoRow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $font-color;
+
+        &_value {
+            color: $yellow-color;
+            font-weight: bold;
+        } 
+    }
+    
+    &__pagination {
+        margin: 20px auto;
+        min-height: 50px;
+        background-color: $white-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        border-radius: 8px;
+    }
+}

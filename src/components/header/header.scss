@@ -1,0 +1,17 @@
+@import "/src/common/assets/scss/variables.scss";
+
+.header {
+  height: 60px;
+  width: 100vw;
+  border-bottom: 1px solid $light-gray-color-hover;
+  background-color: $white-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 101;
+
+  &__brand h2 {
+    letter-spacing: 8px;
+  }
+}

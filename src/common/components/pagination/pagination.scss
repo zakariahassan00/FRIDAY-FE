@@ -1,0 +1,26 @@
+@import '/src/common/assets/scss/variables.scss';
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    &__btn {
+        height: 25px;
+        width: 50px;
+        margin: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: .3s;
+        border: 2px solid $fuchsia-blue-color;
+        background-color: $fuchsia-blue-color;
+        color: $white-color;
+    }
+    
+    &__btn:hover {
+        border: 2px solid $fuchsia-blue-color;
+        background-color: $white-color;
+        color: $font-color;
+    }
+}

@@ -1,0 +1,53 @@
+@import '/src/common/assets/scss/variables.scss';
+
+.landing {
+  width: 100%;
+  min-height: calc(100vh - #{$header-height});
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $light-gray-color;
+
+  &__banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+
+  & img {
+    width: 80%;
+    max-width: 600px;
+  }
+
+  &__search {
+    color: #fff;
+    width: 80%;
+    max-width: 400px;
+    height: 40px;
+    border-radius: 16px;
+    outline: none;
+    border: 1px solid $fuchsia-blue-color;
+    margin: 10px auto;
+    cursor: pointer;
+    background-color: $fuchsia-blue-color;
+
+    &:hover {
+      background-color: $fuchsia-blue-color-hover;
+    }
+  }
+
+  &__select {
+    width: 80%;
+    max-width: 400px;
+    height: 40px;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    outline: none;
+    cursor: pointer;
+    background-color: $white-color;
+  }
+}

@@ -1,0 +1,15 @@
+.backBTN {
+  background-color: $fuchsia-blue-color;
+  color: #fff;
+  width: 120px;
+  height: 25px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid $fuchsia-blue-color;
+  margin: 10px auto;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $fuchsia-blue-color-hover;
+  }
+}

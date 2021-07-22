@@ -1,0 +1,22 @@
+@import "/src/common/assets/scss/variables.scss";
+@import "/src/common/assets/scss/components/backBTN.scss";
+
+body {
+  background-color: $light-gray-color;
+}
+
+.header_fixed_position_clear {
+  height: $header-height;
+}
+
+*:disabled {
+  background-color: $disabled-color;
+  color: $disabled-font-color;
+  border: 1px solid $disabled-color;
+}
+
+*:disabled:hover {
+  background-color: $disabled-color;
+  color: $disabled-font-color;
+  border: 1px solid $disabled-color;
+}
