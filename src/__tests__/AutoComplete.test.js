@@ -1,6 +1,10 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, cleanup } from '@testing-library/react';
 import AutoComplete from '../common/components/autoComplete/AutoComplete';
+
+afterEach(() => {
+    cleanup()
+})
 
 it("renders the list correctly", () => {
     const fakeOptions = { data: ["BMW", "AUDI", "FORD"], loaded: true, errors: false }
