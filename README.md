@@ -20,7 +20,7 @@ npm run test
 * Jest & React Testing Library  
 * msw - mocking server worker for testing
 
-## The Solved Problems
+## Solved Problems
 
 * Finding and filtering the right results for the users based on their selections.
 * Narrowing the users selections to provide fast and smooth user experience in order to find the specific vechile.
