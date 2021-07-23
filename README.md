@@ -1,4 +1,4 @@
-# Coding Challenge
+# FRIDAY Coding Challenge
 
  a simple web app that allows a user to select their car from a directory of registered cars.
 ## How to Run the project
