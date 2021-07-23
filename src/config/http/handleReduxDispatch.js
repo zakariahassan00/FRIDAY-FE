@@ -9,7 +9,6 @@ export default async function handleReduxDispatch (options, dispatch, callback) 
     // if there is callback function call it!
     callback && callback(data);
   } catch (err) {
-    console.log(err)
     // use error that added "Explicitly" or replace SUCCESS with ERROR : ACTION_TYPE_SUCCESS ==> ACTION_TYPE_ERROR
     let errorType = options.error ? options.error : options.success.replace("SUCCESS", "ERROR") 
     //     Server Error * Error Type * Redux dispatch 

@@ -67,6 +67,7 @@ const Landing = () => {
         </div>
 
         <AutoComplete
+          name="make"
           options={cars.makes}
           placeholder="Select your car make"
           emptyOptionsMsg="No make found"
@@ -75,6 +76,7 @@ const Landing = () => {
         />
 
         <AutoComplete
+          name="models"
           options={cars.models}
           placeholder="Select your car model"
           watchValue={selectedParams.make}
@@ -87,13 +89,13 @@ const Landing = () => {
         />
 
         <AutoComplete
+          name="bodyType"
           options={{
             data: Helpers.extractFilterValue(cars.selectedCars.data,"bodyType"),
             loaded: true,
             errors: cars.selectedCars.errors
           }}
           placeholder="Car Body Type"
-          emptyOptionsMsg="No Available Data"
           watchValue={selectedParams.model}
           onChange={handleBodyTypeChange}
           fallBack={() =>
@@ -103,18 +105,19 @@ const Landing = () => {
         />
 
         <AutoComplete
+          name="engPower"
           options={{
             data: Helpers.extractFilterValue(filtredSelectedCars.data,"enginePowerPS"),
             loaded: true,
           }}
           placeholder="Engine Power (PS)"
-          emptyOptionsMsg="No Available Data"
           watchValue={selectedParams.bodyType}
           onChange={handleEngPowerChange}
           disabled={!selectedParams.bodyType}
         />
 
         <button
+          data-testid="submit"
           onClick={() =>
             history.push(
               `/cars/${selectedParams.make}/${selectedParams.model}/${selectedParams.bodyType}/${selectedParams.engPower}`

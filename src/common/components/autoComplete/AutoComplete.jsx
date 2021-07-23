@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./autoComplete.scss";
 
 const AutoComplete = ({
+  name,
   options,
   placeholder,
-  emptyOptionsMsg = "no data found",
+  emptyOptionsMsg = "No Available Data",
   onChange,
   fallBack,
   disabled,
@@ -34,7 +35,7 @@ const AutoComplete = ({
   };
 
   const renderList = () => {
-    if (!options.loaded) return <li>Loading...</li>;
+    if (!options.loaded) return <li data-testid="autocomplete-loading-message">Loading...</li>;
     // this fallBack fn acts as "Try Again", if there is an error try again with the provided fn in fallback
     else if (options.errors) {
       fallBack && fallBack();
@@ -45,10 +46,10 @@ const AutoComplete = ({
     );
     
     if (filterOptions.length === 0)
-      return <li onMouseDown={() => handleListClick("")}>{emptyOptionsMsg}</li>;
+      return <li data-testid="autocomplete-empty-message" onMouseDown={() => handleListClick("")}>{emptyOptionsMsg}</li>;
     else
       return filterOptions.map((option) => (
-        <li key={option} onMouseDown={() => handleListClick(option)}>
+        <li data-testid="autocomplete-item" key={option} onMouseDown={() => handleListClick(option)}>
           {option}
         </li>
       ));
@@ -58,6 +59,7 @@ const AutoComplete = ({
   return (
     <div className="autocomplete">
       <input
+        data-testid={name}
         disabled={disabled}
         type="text"
         value={value}

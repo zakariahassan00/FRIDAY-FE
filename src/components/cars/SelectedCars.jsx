@@ -45,7 +45,7 @@ const SelectedCar = () => {
     else return filtredSelectedCars
     .slice(page * ROWS_PER_PAGE, page * ROWS_PER_PAGE + ROWS_PER_PAGE)
     .map((car, index) => (
-    <div key={index} className="viewCars__singleCarInfo">
+    <div key={index} className="viewCars__singleCarInfo" data-testid="single-car-info">
       <h4>Vehicle info</h4>
 
       {carInfoRows.map((row, index) => (
@@ -58,7 +58,6 @@ const SelectedCar = () => {
     ))
   };
 
-
   return <div className="viewCars slideRight">
     <div className="viewCars__control">
 
@@ -67,8 +66,8 @@ const SelectedCar = () => {
       </Link>
 
       <div className="viewCars__path">
-        <h4>{`${params.make} > ${params.model}`}</h4>
-        <p>{`${filtredSelectedCars.length } vehicles found`}</p>
+        <h4 data-testid="current-path">{`${params.make} > ${params.model}`}</h4>
+        <p data-testid="cars-number">{`${filtredSelectedCars.length } vehicles found`}</p>
       </div>
     </div>
 
