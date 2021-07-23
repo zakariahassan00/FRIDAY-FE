@@ -9,4 +9,4 @@ export const getCarsModels = (selectedCarMaker) => async dispatch =>
     handleReduxDispatch({ service: () => Services.fetchAllCarsModels(selectedCarMaker), success: Types.GET_CARS_MODELS_SUCCESS }, dispatch);
 
 export const getSelectedCars = (params) => async dispatch =>
-    handleReduxDispatch({ service: () => Services.fetchSelectedCar(params), success: Types.GET_SELECTED_CARS_SUCCESS }, dispatch);
+    handleReduxDispatch({ service: () => Services.fetchSelectedCars(params), success: Types.GET_SELECTED_CARS_SUCCESS }, dispatch);
